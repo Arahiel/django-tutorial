@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monthly challenge</title>
-</head>
-<body>
-    <h1>This Month's Challenge</h1>
-    <h2>Test</h2>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block page_title %}{{month|title}} challenge{% endblock page_title %}
+{% block content %}
+{% include "challenges/includes/header.html" %}
+
+<h1>{{month|title}} Challenge</h1>
+    <h2>
+        {%if text %}{{text}}{% else %}<p>There is no challenge for {{month}} yet!</p>{% endif %}
+    </h2>
+{% endblock content %}
